@@ -14,3 +14,12 @@ dependencies {
 application {
     mainClass = 'Main'
 }
+
+tasks.named('run') {
+    standardInput = System.in
+    jvmArgs '-Dfile.encoding=UTF-8', '-Dconsole.encoding=UTF-8', '-Dsun.jnu.encoding=UTF-8'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
