@@ -82,7 +82,8 @@ public class Visualization {
             double intensityAtX = intensity[xIndex];
 
             int intensityValue = (int) (255 * Math.min(1.0, intensityAtX / maxIntensity));
-            Color color = new Color(intensityValue, intensityValue, intensityValue);
+            float hue = (float) (0.67 * (1.0 - intensityAtX / maxIntensity));
+            Color color = Color.getHSBColor(hue, 1.0f, 1.0f);
             
             for (int y = 0; y < imageHeight; y++) {
                 image.setRGB(x, y, color.getRGB());
